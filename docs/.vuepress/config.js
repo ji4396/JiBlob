@@ -1,8 +1,8 @@
 module.exports = {
   title: 'JI',// 设置网站标题
   description: '学习笔记',
-  base: '/',   // 设置站点根路径
-  dest: './ROOT',  // 设置输出目录
+  base: '/JiBlob/',   // 设置站点根路径
+  dest: 'dist',  // 设置输出目录
   port: 8086,
   head: [],
   plugins: [],

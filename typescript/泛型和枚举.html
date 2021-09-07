@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>泛型和枚举 | JI</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="学习笔记">
+    
+    <link rel="preload" href="/JiBlob/assets/css/0.styles.c9ccf29d.css" as="style"><link rel="preload" href="/JiBlob/assets/js/app.a432fee0.js" as="script"><link rel="preload" href="/JiBlob/assets/js/2.91746a35.js" as="script"><link rel="preload" href="/JiBlob/assets/js/13.bee2089e.js" as="script"><link rel="prefetch" href="/JiBlob/assets/js/10.2a0c4188.js"><link rel="prefetch" href="/JiBlob/assets/js/11.4ae3f851.js"><link rel="prefetch" href="/JiBlob/assets/js/12.39b223e9.js"><link rel="prefetch" href="/JiBlob/assets/js/3.3f5463c3.js"><link rel="prefetch" href="/JiBlob/assets/js/4.1304d83f.js"><link rel="prefetch" href="/JiBlob/assets/js/5.e413d0ab.js"><link rel="prefetch" href="/JiBlob/assets/js/6.a39af051.js"><link rel="prefetch" href="/JiBlob/assets/js/7.f3437b23.js"><link rel="prefetch" href="/JiBlob/assets/js/8.fec25c4f.js"><link rel="prefetch" href="/JiBlob/assets/js/9.b782e04c.js">
+    <link rel="stylesheet" href="/JiBlob/assets/css/0.styles.c9ccf29d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/JiBlob/" class="home-link router-link-active"><!----> <span class="site-name">JI</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/JiBlob/" class="nav-link">
+  主页
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/JiBlob/" class="nav-link">
+  主页
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/JiBlob/typescript/" class="sidebar-heading clickable router-link-active open"><span>typescript</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/JiBlob/typescript/ts实战vue.html" class="sidebar-link">Vue项目typescript实战</a></li><li><a href="/JiBlob/typescript/基础类型.html" class="sidebar-link">typescript基本知识</a></li><li><a href="/JiBlob/typescript/接口.html" class="sidebar-link">接口</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/JiBlob/typescript/泛型和枚举.html" class="active sidebar-link">泛型和枚举</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="泛型和枚举"><a href="#泛型和枚举" class="header-anchor">#</a> 泛型和枚举</h1> <ul><li>不用泛型的例子</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">identity</span><span class="token punctuation">(</span><span class="token parameter">arg<span class="token operator">:</span> number</span><span class="token punctuation">)</span><span class="token operator">:</span> number <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> arg<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//或者，我们使用any类型来定义函数：</span>
+<span class="token keyword">function</span> <span class="token function">identity</span><span class="token punctuation">(</span><span class="token parameter">arg<span class="token operator">:</span> any</span><span class="token punctuation">)</span><span class="token operator">:</span> any <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> arg<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>使用泛型的形式</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> identity<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>arg<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token constant">T</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> arg<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>定义了泛型函数后，可以用两种方法使用</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 1. 传入所有的参数，包含类型参数</span>
+<span class="token keyword">let</span> output <span class="token operator">=</span> identity<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">&quot;myString&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// type of output will be 'string'</span>
+<span class="token comment">// 2. 利用了类型推论 -- 即编译器会根据传入的参数自动地帮助我们确定的类型：</span>
+<span class="token keyword">let</span> output <span class="token operator">=</span> <span class="token function">identity</span><span class="token punctuation">(</span><span class="token string">&quot;myString&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// type of output will be 'string'</span>
+</code></pre></div><ul><li>注意点：</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> loggingIdentity<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>arg<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token constant">T</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arg<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Error: T doesn't have .length</span>
+    <span class="token keyword">return</span> arg<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//</span>
+<span class="token keyword">function</span> loggingIdentity<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>arg<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arg<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Array has a .length, so no more error</span>
+    <span class="token keyword">return</span> arg<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> loggingIdentity<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>arg<span class="token operator">:</span> Array<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token operator">:</span> Array<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arg<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Array has a .length, so no more error</span>
+    <span class="token keyword">return</span> arg<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h1 id="枚举"><a href="#枚举" class="header-anchor">#</a> 枚举</h1> <p>TypeScript支持数字的和基于字符串的枚举。</p> <h3 id="数字枚举"><a href="#数字枚举" class="header-anchor">#</a> 数字枚举</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//Up的值为 0， Down的值为 1等等。</span>
+<span class="token keyword">enum</span> Direction <span class="token punctuation">{</span>
+    Up<span class="token punctuation">,</span>
+    Down<span class="token punctuation">,</span>
+    Left<span class="token punctuation">,</span>
+    Right<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>我们定义了一个数字枚举， Up使用初始化为 1。 其余的成员会从 1开始自动增长。 换句话说， Direction.Up的值为 1， Down为 2， Left为 3， Right为 4</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">enum</span> Direction <span class="token punctuation">{</span>
+    Up <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    Down<span class="token punctuation">,</span>
+    Left<span class="token punctuation">,</span>
+    Right
+<span class="token punctuation">}</span>
+</code></pre></div><p>通过枚举的属性来访问枚举成员，和枚举的名字来访问枚举类型：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">enum</span> Response <span class="token punctuation">{</span>
+    No <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    Yes <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">respond</span><span class="token punctuation">(</span><span class="token parameter">recipient<span class="token operator">:</span> string<span class="token punctuation">,</span> message<span class="token operator">:</span> Response</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">respond</span><span class="token punctuation">(</span><span class="token string">&quot;Princess Caroline&quot;</span><span class="token punctuation">,</span> Response<span class="token punctuation">.</span>Yes<span class="token punctuation">)</span>
+</code></pre></div><h3 id="字符串枚举"><a href="#字符串枚举" class="header-anchor">#</a> 字符串枚举</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">enum</span> Direction <span class="token punctuation">{</span>
+    Up <span class="token operator">=</span> <span class="token string">&quot;UP&quot;</span><span class="token punctuation">,</span>
+    Down <span class="token operator">=</span> <span class="token string">&quot;DOWN&quot;</span><span class="token punctuation">,</span>
+    Left <span class="token operator">=</span> <span class="token string">&quot;LEFT&quot;</span><span class="token punctuation">,</span>
+    Right <span class="token operator">=</span> <span class="token string">&quot;RIGHT&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">9/7/2021, 6:06:12 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/JiBlob/typescript/接口.html" class="prev">
+        接口
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/JiBlob/assets/js/app.a432fee0.js" defer></script><script src="/JiBlob/assets/js/2.91746a35.js" defer></script><script src="/JiBlob/assets/js/13.bee2089e.js" defer></script>
+  </body>
+</html>

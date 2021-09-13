@@ -5,15 +5,14 @@ module.exports = {
   dest: 'dist',  // 设置输出目录
   port: 8086,
   head: [],
-  markdown:{ 
-    includeLevel: [2, 3] 
+  markdown: {
+    includeLevel: [2, 3]
   },
   plugins: [],
   themeConfig: {
     // 添加导航栏
     nav: [
       { text: '主页', link: '/' },
-      // { text: '指南', link: '/' },
       // { text: '生活', link: '/' },
       // {
       //   text: '学习',
@@ -25,7 +24,7 @@ module.exports = {
     ],
     search: false,
     searchMaxSuggestions: 10,
-    displayAllHeaders: true ,// 默认值：false
+    displayAllHeaders: true,// 默认值：false
     sidebar: [
       {
         title: 'typescript',   // 必要的
@@ -34,7 +33,27 @@ module.exports = {
         sidebarDepth: 2,    // 可选的, 默认值是 1
         children: [
           '/typescript/ts实战vue.html',
-          '/typescript/基础类型.html','/typescript/接口.html','/typescript/泛型和枚举.html',
+          '/typescript/vue2ts实际案例.html',
+          '/typescript/tsbase.html',
+        ]
+      },
+      {
+        title: 'vue系列',   // 必要的
+        path: '/vueseries/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 2,    // 可选的, 默认值是 1
+        children: [
+          '/vueseries/vue3.html',
+        ]
+      },
+      {
+        title: 'node',   // 必要的
+        path: '/node/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 2,    // 可选的, 默认值是 1
+        children: [
+          '/node/node01.html',
+          '/node/node02.html',
         ]
       },
     ],

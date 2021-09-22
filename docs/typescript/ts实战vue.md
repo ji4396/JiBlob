@@ -110,3 +110,5 @@ src：项目源码。开发的时候代码写在这里。
 如果是按需引入的方式。如图：
 ![An image](./image/ele-anxu.png)
 ![An image](./image/ele-yinru.png)
+注： 这个文件也可以是element.ts，用法和上述图片一样
+

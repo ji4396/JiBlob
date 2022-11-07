@@ -1,5 +1,5 @@
 ---
 home: true
 actionText: go →
-actionLink: /typescript/
+actionLink: /framework/
 ---

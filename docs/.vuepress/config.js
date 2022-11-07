@@ -27,28 +27,27 @@ module.exports = {
     displayAllHeaders: true,// 默认值：false
     sidebar: [
       {
-        title: 'typescript',   // 必要的
-        path: '/typescript/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+        title: '前端架构问题整理',   // 必要的
+        path: '/framework/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 2,    // 可选的, 默认值是 1
         children: [
-          '/typescript/ts实战vue.html',
-          '/typescript/vue2ts实际案例.html',
-          '/typescript/tsbase.html',
+          '/framework/webpack.html',
+          '/framework/tsbase.html',
         ]
       },
       {
-        title: 'vue系列',   // 必要的
-        path: '/vueseries/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+        title: 'vue问题整理',   // 必要的
+        path: '/vue/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 2,    // 可选的, 默认值是 1
         children: [
-          '/vueseries/vue3.html',
+          '/vue/vue.html',
         ]
       },
       {
-        title: 'node',   // 必要的
-        path: '/node/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+        title: '服务端知识总结', // 必要的
+        path: '/server/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 2,    // 可选的, 默认值是 1
         children: [

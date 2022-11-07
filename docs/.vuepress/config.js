@@ -37,12 +37,12 @@ module.exports = {
         ]
       },
       {
-        title: 'vue问题整理',   // 必要的
-        path: '/vue/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+        title: '每周问题记录',   // 必要的
+        path: '/question/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 2,    // 可选的, 默认值是 1
         children: [
-          '/vue/vue.html',
+          // '/vue/vue.html',
         ]
       },
       {

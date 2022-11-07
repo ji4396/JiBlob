@@ -18,3 +18,7 @@ npm run dev
 
 
 
+每次提交都报错  Failed to connect to github.com port 443 after 21080 ms: Timed out  解决方案
+git config --global http.sslVerify "false"
+
+
